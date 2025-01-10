@@ -34,7 +34,7 @@ export const loginUser  = async (credentials: { email: string; userid: string })
       const userId = Number(data.userid)
       console.log(userId);
       
-      window.location.href = `../Users/${userId}`;
+      window.location.href = `../Users/${Number(data.userid)}`;
     } else if (data.role === 'shadow') {
       window.location.href = '../Dashboard/page';
     } else {
