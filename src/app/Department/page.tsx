@@ -121,8 +121,15 @@ function Department() {
     }
   };
 
+  const createDepartment = ()=> {
+    try{
+
+    }
+    catch(error) {}
+  }
+
   return (
-    <div className="flex">
+    <div className="flex text-slate-700">
       <Sidenav />
 
       <main className="relative w-full p-4 bg-[#ebe9eb]">
