@@ -257,11 +257,11 @@ export const fetchTechnician = async () => {
   try {
     const response = await fetch(`${API_BASE_URL}/technician`);
     if (!response.ok) {
-      throw new Error('Failed to fetch departments: Server error');
+      throw new Error('Failed to fetch Technicians: Server error');
     }
     return await response.json();
   } catch (error) {
-    console.error('Error fetching departments:', error);
+    console.error('Error fetching Technicians:', error);
     throw error;
   }
 };

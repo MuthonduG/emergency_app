@@ -16,7 +16,7 @@ interface Technician {
 function Technician() {
   const [showForm, setShowForm] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [data, setData] = useState<Technician[]>([]);
+  const [data, setData] = useState<Technician[] | []>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const itemsPerPage = 15; // Show 15 rows per page
@@ -29,9 +29,9 @@ function Technician() {
       setError(null);
       try {
         const technicians = await fetchTechnician();
-        setData(technicians);
+        setData(technicians.response);
       } catch (error) {
-        console.error('Error loading technicians:', error);
+        console.error('Error loading technicians:', Response.error);
         setError('Failed to load technicians. Please try again later.');
       } finally {
         setLoading(false);
