@@ -31,7 +31,8 @@ export const loginUser  = async (credentials: { email: string; userid: string })
 
     // Redirect based on role
     if (data.role === 'light') {
-      window.location.href = `../Users/${data.userid}`;
+      const userId = Number(data.userid)
+      window.location.href = `../Users/${userId}`;
     } else if (data.role === 'shadow') {
       window.location.href = '../Dashboard/page';
     } else {
