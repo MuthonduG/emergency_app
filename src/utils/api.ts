@@ -30,7 +30,7 @@ export const loginUser = async (credentials: { email: string; userid: string }) 
     if (data.role === 'light') {
       window.location.href = `/Users/${userId}`;
     } else if (data.role === 'shadow') {
-      window.location.href = '/Dashboard/page';
+      window.location.href = '/Technician';
     } else {
       throw new Error('Invalid role');
     }

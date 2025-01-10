@@ -2,24 +2,37 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { loginUser  } from '../../utils/api';
+import { loginUser,   } from '../../utils/api';
 
 function Login() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [userid, setuserid] = useState('');
   const [error, setError] = useState('');
+  const [isTechnician, setIsTechnician] = useState<boolean>(false)
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    try {
-      const response = await loginUser ({ email, userid });
-      // Handle successful login (e.g., store token, redirect)
-      console.log('Login successful:', response);
-      // router.push('../Dashboard/page')
-    } catch (error) {
-      setError('Invalid email or userid');
-      console.error('Login error:', error);
+    if(!isTechnician) {
+      try {
+        const response = await loginUser ({ email, userid });
+        // Handle successful login (e.g., store token, redirect)
+        console.log('Login successful:', response);
+        // router.push('../Dashboard/page')
+      } catch (error) {
+        setError('Invalid email or userid');
+        console.error('Login error:', error);
+      }
+    } else {
+      try {
+        const response = await loginUser ({ email, userid });
+        // Handle successful login (e.g., store token, redirect)
+        console.log('Login successful:', response);
+        // router.push('../Dashboard/page')
+      } catch (error) {
+        setError('Invalid email or userid');
+        console.error('Login error:', error);
+      }
     }
   };
 
