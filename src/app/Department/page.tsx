@@ -121,13 +121,6 @@ function Department() {
     }
   };
 
-  const createDepartment = ()=> {
-    try{
-
-    }
-    catch(error) {}
-  }
-
   return (
     <div className="flex text-slate-700">
       <Sidenav />
