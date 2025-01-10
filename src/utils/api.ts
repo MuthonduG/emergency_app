@@ -4,7 +4,7 @@ const API_BASE_URL = 'https://astroaid.onrender.com/api'; // Replace with your a
 /**
  * Authenticate user (login)
  */
-export const loginUser  = async (credentials: { email: string; userid: string }) => {
+export const loginUser = async (credentials: { email: string; userid: string }) => {
   try {
     const response = await fetch(`${API_BASE_URL}/login`, {
       method: 'POST',
@@ -14,37 +14,32 @@ export const loginUser  = async (credentials: { email: string; userid: string })
       body: JSON.stringify(credentials),
     });
 
-    // Check if the response is OK (status code 200-299)
     if (!response.ok) {
-      // Parse the error response
       const errorData = await response.json();
       throw new Error(errorData.message || 'Failed to login: Invalid credentials or server error');
     }
 
-    // Parse the success response
     const data = await response.json();
 
-    // Ensure the response contains the expected fields
     if (!data.role) {
       throw new Error('Invalid response from server: Role not found');
     }
 
-    // Redirect based on role
+    const userId = Number(credentials.userid)
+
     if (data.role === 'light') {
-      const userId = Number(data.userid)
-      console.log(userId);
-      
-      window.location.href = `../Users/${Number(data.userid)}`;
+      window.location.href = `/Users/${userId}`;
     } else if (data.role === 'shadow') {
-      window.location.href = '../Dashboard/page';
+      window.location.href = '/Dashboard/page';
     } else {
       throw new Error('Invalid role');
     }
   } catch (error) {
     console.error('Error logging in:', error);
-    throw error; // Re-throw the error for the caller to handle
+    throw error;
   }
 };
+
 /**
  * Authenticate device (login)
  */

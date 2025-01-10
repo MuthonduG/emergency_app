@@ -16,7 +16,7 @@ function Login() {
       const response = await loginUser ({ email, userid });
       // Handle successful login (e.g., store token, redirect)
       console.log('Login successful:', response);
-      router.push('../Dashboard/page')
+      // router.push('../Dashboard/page')
     } catch (error) {
       setError('Invalid email or userid');
       console.error('Login error:', error);
