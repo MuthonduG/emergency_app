@@ -1,5 +1,5 @@
 
-const API_BASE_URL = 'https://astroaid.onrender.com/api'; // Replace with your actual backend URL
+const API_BASE_URL = 'https://instaaction.onrender.com/api'; // Replace with your actual backend URL
 
 /**
  * Authenticate user (login)

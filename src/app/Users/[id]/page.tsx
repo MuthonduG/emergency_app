@@ -7,8 +7,23 @@ import About from '@/components/About';
 import Faq from '@/components/Faq';
 import ContactUs from '@/components/ContactUs';
 import Footer from '@/components/Footer';
+import { useEffect, useState } from 'react';
 
 function Landing() {
+
+  const [isPopup, setIsPopup ] = useState<boolean>(true)
+  
+  useEffect(()=>{
+    const setModal = ()=> {
+      window.onload = ()=> {
+        return(
+          <div className="">
+            
+          </div>
+        )
+      }
+    }
+  }, [])
 
   return (
     <div className='bg-white'>
