@@ -3,7 +3,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
-import { Field, Label, Switch } from '@headlessui/react'
+// import { Field, Label, Switch } from '@headlessui/react'
 
 function ContactUs() {
   const [agreed, setAgreed] = useState(false)

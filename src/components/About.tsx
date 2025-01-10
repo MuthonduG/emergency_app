@@ -1,6 +1,5 @@
 import React from 'react'
 import { CloudArrowUpIcon, LockClosedIcon, ServerIcon } from '@heroicons/react/20/solid'
-import { GiThreeFriends } from "react-icons/gi";
 
 function About() {
 

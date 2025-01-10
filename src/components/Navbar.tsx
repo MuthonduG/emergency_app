@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import { MdLogout } from "react-icons/md";
 
 function Navbar() {
