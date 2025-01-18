@@ -5,13 +5,14 @@ import { FaMicrochip } from "react-icons/fa6";
 import { FaUserAlt } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 import { TbLogout } from "react-icons/tb";
+import { MdCrisisAlert } from "react-icons/md";
 
 function Sidenav() {
   return (
     <div className="group sticky top-0 left-0 bottom-0 h-screen bg-[#961f1f] text-white flex flex-col items-center py-4 w-[70px] hover:w-[240px] transition-all duration-300">
       {/* Logo */}
-      <div className='p-4 w-full block justify-center items-center'>
-        <img src="/images/logo.png" alt="" className='rounded-full'/>
+      <div className='p-4 w-full flex justify-center items-center'>
+        <MdCrisisAlert className='mx-auto h-10 w-auto rounded-lg p-3 bg-red-200 text-red-900'/>
         <h3 className='text-xl font-bold content-center hidden group-hover:block'>QuickAid</h3>
       </div>
       <div className="h-[90px] w-full p-4"></div>

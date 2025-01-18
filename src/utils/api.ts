@@ -40,29 +40,6 @@ export const loginUser = async (credentials: { email: string; userid: string }) 
   }
 };
 
-/**
- * Authenticate device (login)
- */
-export const loginDevice  = async (credentials: { devicesernum: string; password: string }) => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/devicelogin`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(credentials),
-    });
-    if (!response.ok) {
-      throw new Error('Failed to login: Invalid credentials or server error');
-    }
-    const data = await response.json();
-    const role = data.role;
-    
-  } catch (error) {
-    console.error('Error logging in:', error);
-    throw error;
-  }
-};
 
 /**
  * Register a new user
@@ -104,38 +81,6 @@ export const registerTechnician = async (userData: { email: string; userid: stri
     return await response.json();
   } catch (error) {
     console.error('Error registering technician:', error);
-    throw error;
-  }
-};
-
-
-/**
- * Add a new device
- */
-export const addDevice = async (deviceData: {
-  devicebuilding: string;
-  deviceroom: string;
-  devicesernum: string;
-  devicestatus: string;
-}) => {
-  if (!deviceData.devicebuilding || !deviceData.deviceroom || !deviceData.devicesernum || !deviceData.devicestatus) {
-    throw new Error('Devicebuilding, deviceroom, devicesernum, and devicestatus are required');
-  }
-
-  try {
-    const response = await fetch(`${API_BASE_URL}/deviceform`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(deviceData),
-    });
-    if (!response.ok) {
-      throw new Error('Failed to add device: Device already exists or server error');
-    }
-    return await response.json();
-  } catch (error) {
-    console.error('Error adding device:', error);
     throw error;
   }
 };
@@ -201,22 +146,6 @@ export const addDepartment = async (departmentData: {
   }
 };
 
-
-/**
- * Fetch all devices
- */
-export const fetchDevices = async () => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/device`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch devices: Server error');
-    }
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching devices:', error);
-    throw error;
-  }
-};
 
 /**
  * Fetch all departments

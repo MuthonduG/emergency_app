@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { registerUser  } from '../../utils/api';
+import { MdCrisisAlert } from "react-icons/md";
 
 function Signup() {
   const router = useRouter();
@@ -33,19 +34,18 @@ function Signup() {
 
   return (
     <section className="h-screen bg-red-200">
-      <div className='flex justify-center items-center p-3 h-screen'>
-        <div className='flex content-center items-center gap-10 bg-amber-50 h-2/3 w-2/3 rounded-lg'>
-          <div className='w-1/2 h-full'>
+      <div className='flex justify-center items-center p-3 h-full'>
+        <div className='flex flex-col lg:flex-row content-center items-center gap-10 bg-amber-50 h-auto lg:h-2/3 w-full lg:w-2/3 rounded-lg'>
+
+          {/* Image Section */}
+          <div className='hidden lg:block w-full lg:w-1/2 h-64 lg:h-full'>
             <img src="/images/auth.jpeg" alt="auth img" className='h-full w-full rounded-lg'/>
           </div>
 
-          <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+          {/* Form Section */}
+          <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 w-full lg:w-1/2">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-              <img
-                alt="Your Company"
-                src="/images/logo.png"
-                className="mx-auto h-10 w-auto rounded-lg"
-              />
+              <MdCrisisAlert className='mx-auto h-10 w-auto rounded-lg p-3 bg-red-200 text-red-900'/>
               <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-red-900">
                 Create account
               </h2>
